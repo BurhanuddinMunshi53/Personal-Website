@@ -1,3 +1,5 @@
+import { BookOpen } from "lucide-react"; // add BookOpen to your existing lucide-react import
+import echoProtocolCover from "@/assets/EchoProtocolCover.png";
 import { ArrowUpRight, Github, Star, GitFork, Code2, Activity, RefreshCw, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useMemo } from "react";
 import SiteLayout from "@/components/SiteLayout";
@@ -204,6 +206,58 @@ const Projects = () => {
           </div>
         </section>
       )}
+      {/* Beyond code — manually added, not pulled from GitHub */}
+<section className="container pb-14 md:pb-20">
+  <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
+    <div>
+      <p className="eyebrow mb-2">Beyond the code · manually added</p>
+      <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">Also building: a novel.</h2>
+    </div>
+    <p className="text-sm text-muted-foreground max-w-md">
+      Everything above is live from GitHub. This one isn't — it's a book, not a repo.
+    </p>
+  </div>
+
+  <a
+    href="/EchoProtocol.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="soft-card p-6 md:p-8 flex flex-col sm:flex-row gap-6 sm:gap-8 group"
+  >
+    <div className="w-full sm:w-40 flex-shrink-0">
+      <img
+        src={echoProtocolCover}
+        alt="Echo Protocol book cover"
+        className="w-full h-auto rounded-lg border border-border shadow-sm"
+      />
+    </div>
+
+    <div className="flex-1 min-w-0">
+      <div className="flex items-center gap-3 flex-wrap">
+        <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent inline-flex items-center gap-1.5">
+          <BookOpen className="h-3 w-3" />
+          Fiction · Sci-Fi Thriller
+        </span>
+        <span className="text-[11px] text-muted-foreground">The Quantum Archives · Volume One</span>
+      </div>
+
+      <h3 className="font-semibold text-2xl md:text-3xl tracking-tight mt-4 group-hover:text-accent transition-colors">
+        Echo Protocol
+      </h3>
+
+      <p className="text-sm md:text-base text-foreground/80 mt-3 leading-relaxed max-w-2xl">
+        A reality-rewriting system. A researcher missing five years of memory. And a choice
+        no one should have to make alone. A full-length novel — written, edited, and designed
+        end to end.
+      </p>
+
+      <div className="flex items-center gap-2 mt-5 text-sm font-medium text-accent">
+        Read the book
+        <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+      </div>
+    </div>
+  </a>
+</section>
 
       {/* All repositories */}
       {rest.length > 0 && (
