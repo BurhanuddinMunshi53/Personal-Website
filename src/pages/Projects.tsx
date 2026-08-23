@@ -201,6 +201,101 @@ const Projects = () => {
                     ))}
                   </div>
                 )}
+              <article className="soft-card p-6 md:p-8">
+  <div className="flex items-center gap-3 flex-wrap mb-4">
+    <span className="text-xs font-mono text-muted-foreground">P</span>
+    <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent">
+      Math · Research
+    </span>
+    <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
+      171 digits @ round 6
+    </span>
+    <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
+      verified 2 independent ways
+    </span>
+  </div>
+
+  <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">
+    Computing π with the Arithmetic-Geometric Mean
+  </h2>
+  <p className="text-sm md:text-base text-foreground/80 mt-3 leading-relaxed max-w-2xl">
+    Two numbers converge toward each other every round — π falls out of the gap
+    between them, doubling in accuracy each time.
+  </p>
+
+  <p className="eyebrow mt-7 mb-2">Formula 1 — the iteration</p>
+  <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-[13px] leading-loose overflow-x-auto">
+    <div>a_new = (a + b) / 2</div>
+    <div>b_new = √(a × b)</div>
+    <div>t_new = t − p × (a − a_new)²</div>
+    <div>p_new = 2 × p</div>
+  </div>
+
+  <p className="eyebrow mt-6 mb-2">Formula 2 — π falls out of</p>
+  <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-sm">
+    π ≈ (a + b)² / (4t)
+  </div>
+
+  <p className="eyebrow mt-7 mb-3">Worked trace — first 3 rounds</p>
+  <div className="overflow-x-auto rounded-lg border border-border">
+    <table className="w-full text-xs md:text-sm font-mono">
+      <thead>
+        <tr className="bg-subtle text-muted-foreground">
+          <th className="text-left px-4 py-2.5 font-medium">Round</th>
+          <th className="text-left px-4 py-2.5 font-medium">a</th>
+          <th className="text-left px-4 py-2.5 font-medium">b</th>
+          <th className="text-left px-4 py-2.5 font-medium">t</th>
+        </tr>
+      </thead>
+      <tbody>
+        {trace.map((r) => (
+          <tr key={r.round} className="border-t border-border">
+            <td className="px-4 py-2.5 text-muted-foreground">{r.round}</td>
+            <td className="px-4 py-2.5">{r.a}</td>
+            <td className="px-4 py-2.5">{r.b}</td>
+            <td className="px-4 py-2.5">{r.t}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p className="eyebrow mt-7 mb-3">Correct digits per round — measured, not theoretical</p>
+  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+    {digits.map((d) => (
+      <div key={d.n} className="soft-card p-3 text-center">
+        <p className="font-mono text-[11px] text-muted-foreground mb-1">round {d.n}</p>
+        <p className="font-mono text-accent font-semibold">{d.d}</p>
+      </div>
+    ))}
+  </div>
+
+  <p className="eyebrow mt-7 mb-2">How to use it</p>
+  <p className="text-sm text-muted-foreground leading-relaxed">
+    Start at a=1, b=1/√2, t=1/4, p=1. Run the four update lines once, using each
+    value's <em>previous</em> round — never the ones just computed. Feed the results
+    back in as the next round's starting point and repeat.
+  </p>
+
+  <p className="eyebrow mt-7 mb-2">How it's built</p>
+  <p className="text-sm text-muted-foreground leading-relaxed">
+    Exact BigInt fixed-point arithmetic — including a Newton's-method square root
+    written from scratch, since JavaScript has no built-in integer square root.
+    Verified two independent ways before trusting any digit. The method is the
+    Gauss–Legendre / Brent–Salamin algorithm (1970s); the implementation and
+    verification above are mine.
+  </p>
+
+  <a
+    href="https://github.com/BurhanuddinMunshi53"
+    target="_blank"
+    rel="noreferrer"
+    className="link-underline inline-flex items-center gap-1.5 text-sm font-medium mt-6"
+  >
+    <Github className="h-3.5 w-3.5" />
+    See the code
+  </a>
+</article>
               </article>
             ))}
           </div>
