@@ -1,11 +1,10 @@
-import { BookOpen } from "lucide-react"; // add BookOpen to your existing lucide-react import
-import echoProtocolCover from "@/assets/EchoProtocolCover.png";
-import { ArrowUpRight, Github, Star, GitFork, Code2, Activity, RefreshCw, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Github, Star, GitFork, Code2, Activity, RefreshCw, Calendar, ChevronLeft, ChevronRight, BookOpen, Sigma, Wrench } from "lucide-react";
 import { useState, useMemo } from "react";
 import SiteLayout from "@/components/SiteLayout";
 import PageHeader from "@/components/PageHeader";
 import ConnectWithMe from "@/components/ConnectWithMe";
 import { useGithubStats, type Repo } from "@/hooks/useGithubStats";
+import echoProtocolCover from "@/assets/EchoProtocolCover.png";
 
 const GITHUB_PROFILE = "https://github.com/BurhanuddinMunshi53";
 
@@ -52,6 +51,29 @@ const timeAgo = (iso: string) => {
 };
 
 const PAGE_SIZE = 9;
+
+// ---- Pi research content (used only by the Featured Research section below) ----
+const piTrace = [
+  { round: "Start", a: "1.00000000", b: "0.70710678", t: "0.25000000" },
+  { round: "Round 1", a: "0.85355339", b: "0.84089642", t: "0.22855339" },
+  { round: "Round 2", a: "0.84722490", b: "0.84720127", t: "0.22847329" },
+  { round: "Round 3", a: "0.84721308", b: "0.84721308", t: "0.22847329" },
+];
+
+const piDigits = [
+  { n: 1, d: 3 },
+  { n: 2, d: 8 },
+  { n: 3, d: 19 },
+  { n: 4, d: 41 },
+  { n: 5, d: 84 },
+  { n: 6, d: 171 },
+];
+
+const piBenchmark = [
+  { name: "This algorithm", value: 84, max: 84, color: "bg-accent" },
+  { name: "Chudnovsky (1988)", value: 70, max: 84, color: "bg-sky-400" },
+  { name: "Ramanujan (1910)", value: 40, max: 84, color: "bg-muted-foreground/60" },
+];
 
 const Projects = () => {
   const stats = useGithubStats();
@@ -201,158 +223,195 @@ const Projects = () => {
                     ))}
                   </div>
                 )}
-              <article className="soft-card p-6 md:p-8">
-  <div className="flex items-center gap-3 flex-wrap mb-4">
-    <span className="text-xs font-mono text-muted-foreground">P</span>
-    <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent">
-      Math · Research
-    </span>
-    <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
-      171 digits @ round 6
-    </span>
-    <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
-      verified 2 independent ways
-    </span>
-  </div>
-
-  <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">
-    Computing π with the Arithmetic-Geometric Mean
-  </h2>
-  <p className="text-sm md:text-base text-foreground/80 mt-3 leading-relaxed max-w-2xl">
-    Two numbers converge toward each other every round — π falls out of the gap
-    between them, doubling in accuracy each time.
-  </p>
-
-  <p className="eyebrow mt-7 mb-2">Formula 1 — the iteration</p>
-  <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-[13px] leading-loose overflow-x-auto">
-    <div>a_new = (a + b) / 2</div>
-    <div>b_new = √(a × b)</div>
-    <div>t_new = t − p × (a − a_new)²</div>
-    <div>p_new = 2 × p</div>
-  </div>
-
-  <p className="eyebrow mt-6 mb-2">Formula 2 — π falls out of</p>
-  <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-sm">
-    π ≈ (a + b)² / (4t)
-  </div>
-
-  <p className="eyebrow mt-7 mb-3">Worked trace — first 3 rounds</p>
-  <div className="overflow-x-auto rounded-lg border border-border">
-    <table className="w-full text-xs md:text-sm font-mono">
-      <thead>
-        <tr className="bg-subtle text-muted-foreground">
-          <th className="text-left px-4 py-2.5 font-medium">Round</th>
-          <th className="text-left px-4 py-2.5 font-medium">a</th>
-          <th className="text-left px-4 py-2.5 font-medium">b</th>
-          <th className="text-left px-4 py-2.5 font-medium">t</th>
-        </tr>
-      </thead>
-      <tbody>
-        {trace.map((r) => (
-          <tr key={r.round} className="border-t border-border">
-            <td className="px-4 py-2.5 text-muted-foreground">{r.round}</td>
-            <td className="px-4 py-2.5">{r.a}</td>
-            <td className="px-4 py-2.5">{r.b}</td>
-            <td className="px-4 py-2.5">{r.t}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-
-  <p className="eyebrow mt-7 mb-3">Correct digits per round — measured, not theoretical</p>
-  <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-    {digits.map((d) => (
-      <div key={d.n} className="soft-card p-3 text-center">
-        <p className="font-mono text-[11px] text-muted-foreground mb-1">round {d.n}</p>
-        <p className="font-mono text-accent font-semibold">{d.d}</p>
-      </div>
-    ))}
-  </div>
-
-  <p className="eyebrow mt-7 mb-2">How to use it</p>
-  <p className="text-sm text-muted-foreground leading-relaxed">
-    Start at a=1, b=1/√2, t=1/4, p=1. Run the four update lines once, using each
-    value's <em>previous</em> round — never the ones just computed. Feed the results
-    back in as the next round's starting point and repeat.
-  </p>
-
-  <p className="eyebrow mt-7 mb-2">How it's built</p>
-  <p className="text-sm text-muted-foreground leading-relaxed">
-    Exact BigInt fixed-point arithmetic — including a Newton's-method square root
-    written from scratch, since JavaScript has no built-in integer square root.
-    Verified two independent ways before trusting any digit. The method is the
-    Gauss–Legendre / Brent–Salamin algorithm (1970s); the implementation and
-    verification above are mine.
-  </p>
-
-  <a
-    href="https://github.com/BurhanuddinMunshi53"
-    target="_blank"
-    rel="noreferrer"
-    className="link-underline inline-flex items-center gap-1.5 text-sm font-medium mt-6"
-  >
-    <Github className="h-3.5 w-3.5" />
-    See the code
-  </a>
-</article>
               </article>
             ))}
           </div>
         </section>
       )}
+
+      {/* Featured research — manually added, not pulled from GitHub */}
+      <section className="container pb-14 md:pb-20">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-8">
+          <div>
+            <p className="eyebrow mb-2">Featured research · manually added</p>
+            <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">Computing π with the Arithmetic-Geometric Mean.</h2>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-md">
+            Two numbers converge toward each other every round — π falls out of the gap between them, doubling in accuracy each time.
+          </p>
+        </div>
+
+        <article className="soft-card p-6 md:p-8">
+          <div className="flex items-center gap-3 flex-wrap mb-6">
+            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent">
+              Math · Research
+            </span>
+            <span className="text-[11px] text-muted-foreground">171 digits @ round 6</span>
+            <span className="text-[11px] text-muted-foreground">verified 2 independent ways</span>
+          </div>
+
+          <p className="eyebrow mb-2">Formula 1 — the iteration</p>
+          <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-[13px] leading-loose overflow-x-auto">
+            <div>a_new = (a + b) / 2</div>
+            <div>b_new = √(a × b)</div>
+            <div>t_new = t − p × (a − a_new)²</div>
+            <div>p_new = 2 × p</div>
+          </div>
+
+          <p className="eyebrow mt-6 mb-2">Formula 2 — π falls out of</p>
+          <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-sm">
+            π ≈ (a + b)² / (4t)
+          </div>
+
+          <p className="eyebrow mt-7 mb-2">Why it works</p>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+            a and b converge toward each other every round, but the number they meet at —
+            about 0.847213 — isn't π and was never meant to be. π only appears once that
+            round's a, b, and t are combined in Formula 2. t is a running tally of how big
+            each round's gap was, and it's the missing piece that turns "two numbers agree"
+            into an actual value for π.
+          </p>
+
+          <p className="eyebrow mt-7 mb-3">Worked trace — first 3 rounds</p>
+          <div className="overflow-x-auto rounded-lg border border-border">
+            <table className="w-full text-xs md:text-sm font-mono">
+              <thead>
+                <tr className="bg-subtle text-muted-foreground">
+                  <th className="text-left px-4 py-2.5 font-medium">Round</th>
+                  <th className="text-left px-4 py-2.5 font-medium">a</th>
+                  <th className="text-left px-4 py-2.5 font-medium">b</th>
+                  <th className="text-left px-4 py-2.5 font-medium">t</th>
+                </tr>
+              </thead>
+              <tbody>
+                {piTrace.map((r) => (
+                  <tr key={r.round} className="border-t border-border">
+                    <td className="px-4 py-2.5 text-muted-foreground">{r.round}</td>
+                    <td className="px-4 py-2.5">{r.a}</td>
+                    <td className="px-4 py-2.5">{r.b}</td>
+                    <td className="px-4 py-2.5">{r.t}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <p className="eyebrow mt-7 mb-3">Correct digits per round — measured, not theoretical</p>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {piDigits.map((d) => (
+              <div key={d.n} className="soft-card p-3 text-center">
+                <p className="font-mono text-[11px] text-muted-foreground mb-1">round {d.n}</p>
+                <p className="font-mono text-accent font-semibold">{d.d}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="eyebrow mt-7 mb-4">5 rounds in, vs. the classics at 5 terms</p>
+          <div className="space-y-4">
+            {piBenchmark.map((b) => (
+              <div key={b.name}>
+                <div className="flex justify-between text-xs font-mono mb-1.5">
+                  <span className="text-foreground">{b.name}</span>
+                  <span className="text-muted-foreground">{b.value} digits</span>
+                </div>
+                <div className="h-2 rounded-full bg-subtle overflow-hidden">
+                  <div className={`h-full rounded-full ${b.color}`} style={{ width: `${(b.value / b.max) * 100}%` }} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <p className="eyebrow mt-8 mb-2 flex items-center gap-2">
+            <Sigma className="h-3.5 w-3.5 text-accent" />
+            How to use it
+          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+            Start at a=1, b=1/√2, t=1/4, p=1. Run the four update lines once, using each
+            value's <em>previous</em> round — never the ones just computed. Feed the
+            results back in as the next round's starting point and repeat. After 3
+            rounds you're at 19 correct digits of π; after 5, 84.
+          </p>
+
+          <p className="eyebrow mt-7 mb-2 flex items-center gap-2">
+            <Wrench className="h-3.5 w-3.5 text-accent" />
+            How it's built
+          </p>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+            Exact BigInt fixed-point arithmetic — including a Newton's-method square
+            root written from scratch, since JavaScript has no built-in integer square
+            root. Verified two independent ways before trusting any digit: once through
+            a high-precision math library in Python, once through my own from-scratch
+            integer version. Both landed on the exact same digits at every round tested.
+            The method itself — using the arithmetic-geometric mean to compute π this
+            way — is the Gauss–Legendre algorithm, formalized independently by Richard
+            Brent and Eugene Salamin in the mid-1970s; the implementation and
+            verification above are mine.
+          </p>
+
+          <a
+            href="https://github.com/BurhanuddinMunshi53"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-medium mt-7 text-accent hover:underline"
+          >
+            <Github className="h-3.5 w-3.5" />
+            See the code
+          </a>
+        </article>
+      </section>
+
       {/* Beyond code — manually added, not pulled from GitHub */}
-<section className="container pb-14 md:pb-20">
-  <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
-    <div>
-      <p className="eyebrow mb-2">Beyond the code · manually added</p>
-      <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">Also building: a novel.</h2>
-    </div>
-    <p className="text-sm text-muted-foreground max-w-md">
-      Everything above is live from GitHub. This one isn't — it's a book, not a repo.
-    </p>
-  </div>
+      <section className="container pb-14 md:pb-20">
+        <div className="flex items-end justify-between flex-wrap gap-4 mb-6">
+          <div>
+            <p className="eyebrow mb-2">Beyond the code · manually added</p>
+            <h2 className="font-semibold text-2xl md:text-3xl tracking-tight">Also building: a novel.</h2>
+          </div>
+          <p className="text-sm text-muted-foreground max-w-md">
+            Everything above is live from GitHub. This one isn't — it's a book, not a repo.
+          </p>
+        </div>
 
-  <a
-    href="/EchoProtocol.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="soft-card p-6 md:p-8 flex flex-col sm:flex-row gap-6 sm:gap-8 group"
-  >
-    <div className="w-full sm:w-40 flex-shrink-0">
-      <img
-        src={echoProtocolCover}
-        alt="Echo Protocol book cover"
-        className="w-full h-auto rounded-lg border border-border shadow-sm"
-      />
-    </div>
+        <a
+          href="/EchoProtocol.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="soft-card p-6 md:p-8 flex flex-col sm:flex-row gap-6 sm:gap-8 group"
+        >
+          <div className="w-full sm:w-40 flex-shrink-0">
+            <img
+              src={echoProtocolCover}
+              alt="Echo Protocol book cover"
+              className="w-full h-auto rounded-lg border border-border shadow-sm"
+            />
+          </div>
 
-    <div className="flex-1 min-w-0">
-      <div className="flex items-center gap-3 flex-wrap">
-        <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent inline-flex items-center gap-1.5">
-          <BookOpen className="h-3 w-3" />
-          Fiction · Sci-Fi Thriller
-        </span>
-        <span className="text-[11px] text-muted-foreground">The Quantum Archives · Volume One</span>
-      </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-accent/15 text-accent inline-flex items-center gap-1.5">
+                <BookOpen className="h-3 w-3" />
+                Fiction · Sci-Fi Thriller
+              </span>
+              <span className="text-[11px] text-muted-foreground">The Quantum Archives · Volume One</span>
+            </div>
 
-      <h3 className="font-semibold text-2xl md:text-3xl tracking-tight mt-4 group-hover:text-accent transition-colors">
-        Echo Protocol
-      </h3>
+            <h3 className="font-semibold text-2xl md:text-3xl tracking-tight mt-4 group-hover:text-accent transition-colors">
+              Echo Protocol
+            </h3>
 
-      <p className="text-sm md:text-base text-foreground/80 mt-3 leading-relaxed max-w-2xl">
-        A reality-rewriting system. A researcher missing five years of memory. And a choice
-        no one should have to make alone. A full-length novel — written, edited, and designed
-        end to end.
-      </p>
+            <p className="text-sm md:text-base text-foreground/80 mt-3 leading-relaxed max-w-2xl">
+              A reality-rewriting system. A researcher missing five years of memory. And a choice
+              no one should have to make alone. A full-length novel — written, edited, and designed
+              end to end.
+            </p>
 
-      <div className="flex items-center gap-2 mt-5 text-sm font-medium text-accent">
-        Read the book
-        <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-      </div>
-    </div>
-  </a>
-</section>
+            <div className="flex items-center gap-2 mt-5 text-sm font-medium text-accent">
+              Read the book
+              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </div>
+          </div>
+        </a>
+      </section>
 
       {/* All repositories */}
       {rest.length > 0 && (
