@@ -8,6 +8,7 @@ const navItems = [
   { path: "/experience", label: "Experience" },
   { path: "/projects", label: "Projects" },
   { path: "/contact", label: "Contact" },
+  { path: "/research", label: "Research" },
 ];
 
 const SiteLayout = ({ children }: { children: ReactNode }) => {
