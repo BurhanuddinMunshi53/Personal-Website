@@ -6,7 +6,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SmoothScroll from "./components/SmoothScroll.tsx";
 import ScrollProgress from "./components/ScrollProgress.tsx";
-
+const Research = lazy(() => import("./pages/Research.tsx"));
+// ...
+<Route path="/research" element={<Research />} />
 // Code-split each route into its own JS chunk for faster initial load.
 const Index = lazy(() => import("./pages/Index.tsx"));
 const Education = lazy(() => import("./pages/Education.tsx"));
