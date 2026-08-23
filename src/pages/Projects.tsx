@@ -250,29 +250,72 @@ const Projects = () => {
             <span className="text-[11px] text-muted-foreground">verified 2 independent ways</span>
           </div>
 
-          <p className="eyebrow mb-2">Formula 1 — the iteration</p>
+          <p className="eyebrow mb-2">The iteration</p>
           <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-[13px] leading-loose overflow-x-auto">
-            <div>a (for next iteration) = (a + b) / 2</div>
-            <div>b (for next iteration) = √(a × b)</div>
-            <div>t (for next iteration) = t − p × (a − a (new value) )²</div>
-            <div>p (for next iteration) = 2 × p</div>
+            <div>a_new = (a + b) / 2</div>
+            <div>b_new = √(a × b)</div>
+            <div>t_new = t − p × (a − a_new)²</div>
+            <div>p_new = 2 × p</div>
+            <div className="mt-3 pt-3 border-t border-border text-accent">π ≈ (a + b)² / (4t)</div>
           </div>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl mt-3">
+            Five lines, run over and over. The first four move a, b, t, and p one round
+            closer together. The last one is where π actually comes out.
+          </p>
 
-          <p className="eyebrow mt-6 mb-2">Formula 2 — π falls out of</p>
-          <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-sm">
-            π ≈ (a + b)² / (4t)
+          <p className="eyebrow mt-8 mb-3">Steps for calculating variables for the next iteration</p>
+          <div className="space-y-3">
+            {[
+              { n: "1", t: "Average a and b", f: "→ becomes the new a" },
+              { n: "2", t: "Take the square root of a × b", f: "→ becomes the new b" },
+              { n: "3", t: "Subtract p × (old a − new a)² from t", f: "→ becomes the new t" },
+              { n: "4", t: "Double p", f: "→ becomes the new p" },
+            ].map((s) => (
+              <div key={s.n} className="flex items-start gap-3">
+                <span className="h-6 w-6 rounded-full bg-accent/15 text-accent text-xs font-mono grid place-items-center shrink-0 mt-0.5">
+                  {s.n}
+                </span>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="text-foreground">{s.t}</span> {s.f}
+                </p>
+              </div>
+            ))}
           </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mt-3 max-w-3xl">
+            All four use last round's values — never the ones you just calculated this round.
+          </p>
 
-          <p className="eyebrow mt-7 mb-2">Why it works</p>
+          <p className="eyebrow mt-8 mb-3">Steps to move towards π's value</p>
+          <div className="space-y-3">
+            {[
+              { n: "1", t: "Take this round's a and b, add them, square the result" },
+              { n: "2", t: "Divide that by 4 × this round's t" },
+            ].map((s) => (
+              <div key={s.n} className="flex items-start gap-3">
+                <span className="h-6 w-6 rounded-full bg-accent/15 text-accent text-xs font-mono grid place-items-center shrink-0 mt-0.5">
+                  {s.n}
+                </span>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="text-foreground">{s.t}</span>
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground leading-relaxed mt-3 max-w-3xl">
+            That result is your π estimate after that round — do it after any round, not
+            just the last one.
+          </p>
+
+          <p className="eyebrow mt-8 mb-2">How it works</p>
           <p className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
             a and b converge toward each other every round, but the number they meet at —
             about 0.847213 — isn't π and was never meant to be. π only appears once that
-            round's a, b, and t are combined in Formula 2. t is a running tally of how big
-            each round's gap was, and it's the missing piece that turns "two numbers agree"
-            into an actual value for π.
+            round's a, b, and t are combined in the last step above. t is a running tally
+            of how big each round's gap was, and it's the missing piece that turns "two
+            numbers agree" into an actual value for π.
           </p>
 
-          <p className="eyebrow mt-7 mb-3">Worked trace — first 3 rounds</p>
+          <p className="eyebrow mt-8 mb-3">Worked trace — first 3 rounds</p>
           <div className="overflow-x-auto rounded-lg border border-border">
             <table className="w-full text-xs md:text-sm font-mono">
               <thead>
