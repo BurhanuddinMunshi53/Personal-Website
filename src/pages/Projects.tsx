@@ -252,10 +252,10 @@ const Projects = () => {
 
           <p className="eyebrow mb-2">Formula 1 — the iteration</p>
           <div className="rounded-lg bg-subtle border border-border px-5 py-4 font-mono text-[13px] leading-loose overflow-x-auto">
-            <div>a_new = (a + b) / 2</div>
-            <div>b_new = √(a × b)</div>
-            <div>t_new = t − p × (a − a_new)²</div>
-            <div>p_new = 2 × p</div>
+            <div>a (for next iteration) = (a + b) / 2</div>
+            <div>b (for next iteration) = √(a × b)</div>
+            <div>t (for next iteration) = t − p × (a − a (new value) )²</div>
+            <div>p (for next iteration) = 2 × p</div>
           </div>
 
           <p className="eyebrow mt-6 mb-2">Formula 2 — π falls out of</p>
