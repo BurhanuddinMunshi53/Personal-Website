@@ -6,7 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import SmoothScroll from "./components/SmoothScroll.tsx";
 import ScrollProgress from "./components/ScrollProgress.tsx";
-const Research = lazy(() => import("./pages/Research.tsx"));
+
 // ...
 
 // Code-split each route into its own JS chunk for faster initial load.
