@@ -73,7 +73,7 @@ const Projects = () => {
   return (
     <SiteLayout>
       <PageHeader
-        index="03"
+        index="04"
         title="Projects"
         subtitle="Every project on this page is generated live from my public GitHub. Push a new repository — it appears here automatically with its description, language, stars, and topics. No manual curation, no stale cards."
       />
