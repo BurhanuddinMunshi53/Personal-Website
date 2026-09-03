@@ -14,6 +14,7 @@ const Index = lazy(() => import("./pages/Index.tsx"));
 const Education = lazy(() => import("./pages/Education.tsx"));
 const Experience = lazy(() => import("./pages/Experience.tsx"));
 const Projects = lazy(() => import("./pages/Projects.tsx"));
+const Books = lazy(() => import("./pages/Books.tsx"));
 const Contact = lazy(() => import("./pages/Contact.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
