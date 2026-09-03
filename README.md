@@ -1,4 +1,4 @@
-# burhanuddin.dev — Personal Portfolio
+# burhanuddinmunshi.vercel.app — Personal Portfolio
 
 A production-grade personal portfolio built to reflect the same standards I hold my client work to: clean architecture, deliberate design, and zero shortcuts.
 
