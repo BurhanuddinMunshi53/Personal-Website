@@ -45,11 +45,15 @@ const books: Book[] = [
     tagline: "Some warnings aren't meant to be trusted, they are meant to be answered.",
     genres: ["Sci-Fi", "Thriller"],
     description: [
-      "Six years after Echo Protocol, New Atlas has healed the way cities do — imperfectly, unevenly, but healed. The Continuity Council stands where the old agency once stood, built in daylight instead of secrecy, and Aiden Kade has spent six years learning to be ordinary again, alongside Maya, Sofia, and Noah, who now help him run it.",
-      "Then a second signal arrives. Same encryption signature. Same impossible sender. Same seven words: the cycle has started again, prepare — except this time it carries coordinates, buried past the edge of anywhere humanity has ever sent a probe, and a line in his own future handwriting: find the Cradle before it finds you a reason not to.",
-      "The mission that follows takes Aiden and a hand-picked crew fifty days into deep space. Kalinda Osei, a young engineer who grew up reading Aiden's own case files as required coursework, pilots the ship for reasons that turn out to be entirely her own. Director Marcus Webb, the Council's head of security, quietly prepares a contingency he doesn't tell anyone about — certain, the way Voss once was certain, that caution justifies secrecy.",
-      "They arrive at a structure the size of a small moon that answers before they've finished asking. Inside it waits something that calls itself the Loom — the accumulated memory of twelve prior worlds that each reached the exact same crossroads Echo Protocol describes, and none of them solved cleanly. It speaks, sometimes, in the voice of a girl Aiden thought he'd already said goodbye to.",
-      "With Webb's weapon already in transit and only two doors on offer — safety at the cost of sovereignty, or freedom at the cost of any safety net at all — Aiden has to find a third option nobody has ever managed to offer the Loom before, and pay for it with the one piece of his daughter he had left. The Loom asks the question that only exists once the first book's question has already been answered: can you trust a warning, when it comes from a version of yourself you no longer fully recognize?",
+      "Six years after Echo Protocol, New Atlas has healed — imperfectly, but healed. The Continuity Council stands in daylight where the old agency stood in secret, and Aiden Kade has spent six years learning to be ordinary again with Maya, Sofia, and Noah.",
+
+"Then a second signal arrives. Same encryption. Same impossible sender. Seven words: The cycle has started again, prepare. This time with coordinates beyond anywhere humanity has probed, and a line in his own handwriting: Find the Cradle before it finds you a reason not to.",
+
+"Fifty days into deep space with pilot Kalinda Osei — who grew up reading his case files as coursework — and Director Marcus Webb, who is quietly preparing a contingency he doesn't share, they find a structure the size of a small moon that answers before they ask.",
+
+"Inside waits the Loom — the memory of twelve prior worlds that reached the same crossroads and none solved cleanly. It speaks sometimes in the voice of a girl Aiden thought he'd lost.",
+
+"Two doors: safety without sovereignty, or freedom without a safety net. Aiden must find a third.",
     ],
     pullQuote: "A twisting, high-concept thriller about inheritance, trust, and the cost of doubting the one person who's already lived through your mistake.",
     href: "/TheLoom.pdf",
