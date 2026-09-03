@@ -57,7 +57,7 @@ const books: Book[] = [
 const Books = () => (
   <SiteLayout>
     <PageHeader
-      index="04"
+      index="03"
       title="Books"
       subtitle="Outside of client work, I write. The Quantum Archives is a sci-fi thriller series about memory, trust, and the cost of choosing for people who never got a vote — written, edited, and designed end to end."
     />
