@@ -30,7 +30,7 @@ const meta = [
 const Contact = () => (
   <SiteLayout>
     <PageHeader
-      index="04"
+      index="05"
       title="Contact"
       subtitle="Open to freelance engagements, long-term collaborations, technical consulting, and the occasional interesting conversation. Pick whichever channel suits your message — every enquiry receives a real, considered reply."
     />
