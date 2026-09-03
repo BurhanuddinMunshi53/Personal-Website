@@ -26,13 +26,13 @@ const books: Book[] = [
     description: [
 "New Atlas, 2048. Beneath the black-glass tower sits a machine that can rewrite reality."
 
-"Dr. Aiden Kade has worked at the Global Quantum Authority for twelve years. He remembers seven. That gap is one he trained himself not to notice — until a message arrives with no sender, timestamped thirty years in the future: Do not let Voss activate Echo Protocol.
+"Dr. Aiden Kade has worked at the Global Quantum Authority for twelve years. He remembers seven. That gap is one he trained himself not to notice — until a message arrives with no sender, timestamped thirty years in the future: Do not let Voss activate Echo Protocol."
 
-To stop it, Aiden must recover his erased past with Dr. Maya Ilyas, the neuroscientist who built the tech now used against him; Sofia Reyes, ex-GQA running on instinct and an expired badge; and Noah Petrov, the engineer who tried to stop the prototype once and vanished for two years.
+"To stop it, Aiden must recover his erased past with Dr. Maya Ilyas, the neuroscientist who built the tech now used against him; Sofia Reyes, ex-GQA running on instinct and an expired badge; and Noah Petrov, the engineer who tried to stop the prototype once and vanished for two years."
 
-Above them is Director Elias Voss. Not a monster. That’s what makes him dangerous.
-
-Three doors await — completion, severance, or synthesis — and each one costs something you don’t get to keep.",
+"Above them is Director Elias Voss. Not a monster. That’s what makes him dangerous."
+      
+"Three doors await — completion, severance, or synthesis — and each one costs something you don’t get to keep.",
     ],
     pullQuote: "A twisting, high-concept thriller about memory, identity, and the cost of playing god with both.",
     href: "/EchoProtocol.pdf",
