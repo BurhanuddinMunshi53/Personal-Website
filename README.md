@@ -25,6 +25,7 @@ Projects pull live from the GitHub API. No manual card updates, no stale data.
 | `/` | Hero, about narrative, stack, principles, process & services |
 | `/projects` | Live GitHub repos — sorted by stars, paginated, with language breakdown |
 | `/experience` | Skills and technical experience |
+| `/books` | Books written by me |
 | `/education` | Academic background |
 | `/contact` | Contact form |
 
