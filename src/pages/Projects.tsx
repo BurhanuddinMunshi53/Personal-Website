@@ -78,38 +78,40 @@ const Projects = () => {
         subtitle="A collection of my projects, experiments, and open-source contributions, including EquationFlow and other tools I've built while exploring web development and programming."
       />
 
-<div className="flex flex-wrap gap-2 mt-5">
-{["Mathematics", "Equation Solving", "Graphing",
-"Interactive Tools"].map((topic) => (
-<span
-key={topic}
-className="text-[11px] px-2.5 py-1 rounded-md
-bg-subtle border border-border text-muted-foreground"
+      <div className="flex flex-wrap gap-2 mt-5">
+        {["Mathematics", "Equation Solving", "Graphing"
+          "Interactive Tools"].map((topic) => (
+        <span
+          key={topic}
+          className="text-[11px] px-2.5 py-1 rounded-md
+          bg-subtle border border-border text-muted-foreground"
+          >
+          {topic}
+        </span>
+        ))}
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3 mt-7">
+
+        <a
+          href="https://equationflow.lovable.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-5 py-2.5
+          rounded-full bg-accent text-accent-foreground
+          text-sm font-medium hover:opacity-90 transition-opacity"
 >
-{topic}
-</span>
-))}
-</div>
-<div className="flex flex-wrap items-center gap-3 mt-7">
-<a
-href="https://equationflow.lovable.app"
-target="_blank"
-rel="noopener noreferrer"
-className="inline-flex items-center gap-2 px-5 py-2.5
-rounded-full bg-accent text-accent-foreground
-text-sm font-medium hover:opacity-90 transition-opacity"
->
-Explore EquationFlow
-<ArrowUpRight className="h-4 w-4" />
-</a>
-<span className="text-xs text-muted-foreground">
-equationflow.lovable.app
-</span>
-</div>
-</div>
-</article>
-</section>
-</CodeBlock>
+        Explore EquationFlow
+        <ArrowUpRight className="h-4 w-4" />
+      </a>
+        <span className="text-xs text-muted-foreground">
+          equationflow.lovable.app
+        </span>
+      </div>
+    </div>
+    </article>
+    </section>
+    </CodeBlock>
 
       {/* Live GitHub stats */}
       <section className="container pt-10 md:pt-14">
