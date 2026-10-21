@@ -77,41 +77,84 @@ const Projects = () => {
         title="Projects"
         subtitle="A collection of my projects, experiments, and open-source contributions, including EquationFlow and other tools I've built while exploring web development and programming."
       />
+      
+{/* Featured Project: EquationFlow */}
+<section className="container pt-10 md:pt-14">
+  <article className="soft-card p-6 md:p-9 relative overflow-hidden">
+    <div className="absolute inset-y-0 right-0 w-1/3
+      bg-accent/5 pointer-events-none" />
+
+    <div className="relative z-10">
+      <div className="flex items-center gap-4 flex-wrap">
+        <img
+          src="/faviconeq.svg"
+          alt="EquationFlow logo"
+          className="h-14 w-14 md:h-16 md:w-16 rounded-xl
+            border border-border object-contain p-2"
+        />
+
+        <div>
+          <p className="eyebrow mb-1">
+            Featured Project · Independent Build
+          </p>
+          <h2 className="font-semibold text-2xl md:text-3xl
+            tracking-tight">
+            EquationFlow
+          </h2>
+          <p className="text-xs text-muted-foreground mt-1">
+            Interactive Mathematics Platform
+          </p>
+        </div>
+
+        <span className="text-[11px] font-medium px-3 py-1.5
+          rounded-full bg-accent/15 text-accent md:ml-auto">
+          Flagship Project
+        </span>
+      </div>
+
+      <p className="text-sm md:text-base text-foreground/80
+        leading-relaxed max-w-3xl mt-6">
+        EquationFlow is an interactive mathematics platform
+        designed to bring equations, graphing, and mathematical
+        exploration into one intuitive workspace. It aims to make
+        working with mathematical concepts more accessible through
+        a growing collection of digital tools.
+      </p>
 
       <div className="flex flex-wrap gap-2 mt-5">
-        {["Mathematics", "Equation Solving", "Graphing"
+        {["Mathematics", "Equation Solving", "Graphing",
           "Interactive Tools"].map((topic) => (
-        <span
-          key={topic}
-          className="text-[11px] px-2.5 py-1 rounded-md
-          bg-subtle border border-border text-muted-foreground"
+          <span
+            key={topic}
+            className="text-[11px] px-2.5 py-1 rounded-md
+              bg-subtle border border-border text-muted-foreground"
           >
-          {topic}
-        </span>
+            #{topic}
+          </span>
         ))}
       </div>
 
       <div className="flex flex-wrap items-center gap-3 mt-7">
-
         <a
           href="https://equationflow.lovable.app"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-5 py-2.5
-          rounded-full bg-accent text-accent-foreground
-          text-sm font-medium hover:opacity-90 transition-opacity"
->
-        Explore EquationFlow
-        <ArrowUpRight className="h-4 w-4" />
-      </a>
+            rounded-full bg-accent text-accent-foreground
+            text-sm font-medium hover:opacity-90 transition-opacity"
+        >
+          Explore EquationFlow
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+
         <span className="text-xs text-muted-foreground">
           equationflow.lovable.app
         </span>
       </div>
     </div>
-    </article>
-    </section>
-    </CodeBlock>
+  </article>
+</section>
+
 
       {/* Live GitHub stats */}
       <section className="container pt-10 md:pt-14">
