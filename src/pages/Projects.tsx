@@ -87,7 +87,7 @@ const Projects = () => {
     <div className="relative z-10">
       <div className="flex items-center gap-4 flex-wrap">
         <img
-          src="./public/faviconeq.svg"
+          src="/faviconeq.svg"
           alt="EquationFlow logo"
           className="h-14 w-14 md:h-16 md:w-16 rounded-xl
             border border-border object-contain p-2"
